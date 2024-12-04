@@ -28,6 +28,8 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.14.0")
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.14.0")
 
+    implementation("org.jasypt:jasypt:1.9.3")
+
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
