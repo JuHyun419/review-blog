@@ -27,6 +27,7 @@ dependencies {
 
     implementation("org.seleniumhq.selenium:selenium-java:4.14.0")
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.14.0")
+    implementation("io.github.bonigarcia:webdrivermanager:5.5.3")
 
     implementation("org.jasypt:jasypt:1.9.3")
 
