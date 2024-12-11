@@ -2,12 +2,20 @@ spring:
   application:
     name: review-blog
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: user
     password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    hibernate:
+      ddl-auto: validate
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+
+blog:
+  my: ENC(gUGwPmYy3B0t7SfxnXGSqixFWZ1WNTrEqQ91QT1PRJ14ZaJoXFX3zzuCZPiZ3o87bR8aELAGOXZRaVqu4JMtBw==)
+  come:
+    id: ENC(jzcvwqihX8+plu424QTubQrV9pUTPehyAmT+741dTYy8gDSV5T3ybNHxpR+UAEvf)
+    password: ENC(OH4GNzshB7BjuWzzaDJ15SEbtZGFfmsiWxmEohN52TBO/OHV5q2Dr4F7tgnVkkIK)
