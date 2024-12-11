@@ -29,7 +29,8 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.14.0")
     implementation("io.github.bonigarcia:webdrivermanager:5.5.3")
 
-    implementation("org.jasypt:jasypt:1.9.3")
+    implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
 
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
