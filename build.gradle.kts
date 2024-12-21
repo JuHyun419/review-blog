@@ -32,6 +32,10 @@ dependencies {
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
 
+    // spring-retry
+    implementation ("org.springframework.retry:spring-retry")
+    implementation ("org.springframework:spring-aspects")
+
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
