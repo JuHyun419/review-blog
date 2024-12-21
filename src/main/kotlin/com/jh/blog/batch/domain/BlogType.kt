@@ -6,6 +6,5 @@ enum class BlogType(val blogName: String) {
 
     REVIEW_NOTE("리뷰노트"),
 
-    COME_VISIT("놀러와체험단");
-
+    COME_VISIT("놀러와체험단"),
 }

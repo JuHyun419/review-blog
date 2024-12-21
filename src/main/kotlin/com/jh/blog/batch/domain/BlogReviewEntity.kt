@@ -77,7 +77,7 @@ class BlogReviewEntity(
     var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @LastModifiedDate
-    var updatedAt: LocalDateTime = createdAt
+    var updatedAt: LocalDateTime = createdAt,
 
 ) {
 
