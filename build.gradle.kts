@@ -1,9 +1,11 @@
 plugins {
     kotlin("jvm") version "1.9.25"
     kotlin("plugin.spring") version "1.9.25"
+    kotlin("plugin.jpa") version "1.9.25"
+
     id("org.springframework.boot") version "3.3.4"
     id("io.spring.dependency-management") version "1.1.6"
-    kotlin("plugin.jpa") version "1.9.25"
+    id("org.jlleitschuh.gradle.ktlint") version "11.4.0"
 }
 
 group = "com.jh"
@@ -33,8 +35,8 @@ dependencies {
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
 
     // spring-retry
-    implementation ("org.springframework.retry:spring-retry")
-    implementation ("org.springframework:spring-aspects")
+    implementation("org.springframework.retry:spring-retry")
+    implementation("org.springframework:spring-aspects")
 
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
