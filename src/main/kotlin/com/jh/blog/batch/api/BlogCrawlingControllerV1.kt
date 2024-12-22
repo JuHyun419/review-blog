@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/v1/crawling")
 class BlogCrawlingControllerV1(
-    private val service: BlogCrawlingService
+    private val service: BlogCrawlingService,
 ) {
 
     @PostMapping("/come-visit")

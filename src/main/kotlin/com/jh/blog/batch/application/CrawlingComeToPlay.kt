@@ -74,7 +74,6 @@ class CrawlingComeToPlay(
                 try {
                     driver.get(href)
                 } catch (e: UnhandledAlertException) {
-
                     // 알림 창 대기 및 처리
                     val alert: Alert? = try {
                         WebDriverWait(driver, Duration.ofSeconds(2))
@@ -138,7 +137,7 @@ class CrawlingComeToPlay(
                     reviewRegisterStartDate = reviewRegisterStartDate,
                     reviewRegisterEndDate = reviewRegisterEndDate,
                     currentApplicants = 0, // TODO
-                    totalApplicants = 0, // TODO
+                    totalApplicants = 0 // TODO
                 )
 
                 if (excludesKeyword && !isOver70000WonPrice(provided)) {

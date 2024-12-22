@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional
 // TODO: 크롤링 비즈니스 로직 -> 추상화/구현체 분리
 @Service
 class BlogCrawlingService(
-    private val comeToPlay: CrawlingComeToPlay
+    private val comeToPlay: CrawlingComeToPlay,
 ) {
 
     private val logger = KotlinLogging.logger { }
@@ -46,6 +46,4 @@ class BlogCrawlingService(
 
         WebDriverManager.chromedriver().setup()
     }
-
 }
-
