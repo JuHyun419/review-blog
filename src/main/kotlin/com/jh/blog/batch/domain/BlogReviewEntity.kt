@@ -1,6 +1,7 @@
 package com.jh.blog.batch.domain
 
 import jakarta.persistence.Column
+import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
@@ -42,21 +43,8 @@ class BlogReviewEntity(
     @Column(name = "content")
     var content: String? = null,
 
-    // TODO: review*Date 관련 하나의 VO 로 관리
-    @Column(name = "reviewer_start_date")
-    var reviewerStartDate: String? = null,
-
-    @Column(name = "reviewer_end_date")
-    var reviewerEndDate: String? = null,
-
-    @Column(name = "reviewer_select_date")
-    var reviewerSelectDate: String? = null,
-
-    @Column(name = "review_register_start_date")
-    var reviewRegisterStartDate: String? = null,
-
-    @Column(name = "review_register_end_date")
-    var reviewRegisterEndDate: String? = null,
+    @Embedded
+    var blogReviewDates: BlogReviewDates = BlogReviewDates(),
 
     @Column(name = "is_selected")
     val selectionStatus: Boolean? = false,
@@ -78,8 +66,7 @@ class BlogReviewEntity(
 
     @LastModifiedDate
     var updatedAt: LocalDateTime = createdAt,
-
-) {
+    ) {
 
     fun done() {
         this.done = true
@@ -96,13 +83,31 @@ class BlogReviewEntity(
         currentApplicants: Int,
         totalApplicants: Int,
     ) {
+        done(
+            title = title,
+            content = content,
+            blogReviewDates = BlogReviewDates(
+                reviewerStartDate,
+                reviewerEndDate,
+                reviewerSelectDate,
+                reviewRegisterStartDate,
+                reviewRegisterEndDate
+            ),
+            currentApplicants = currentApplicants,
+            totalApplicants = totalApplicants,
+        )
+    }
+
+    fun done(
+        title: String,
+        content: String,
+        blogReviewDates: BlogReviewDates,
+        currentApplicants: Int,
+        totalApplicants: Int,
+    ) {
         this.title = title
         this.content = content
-        this.reviewerStartDate = reviewerStartDate
-        this.reviewerEndDate = reviewerEndDate
-        this.reviewerSelectDate = reviewerSelectDate
-        this.reviewRegisterStartDate = reviewRegisterStartDate
-        this.reviewRegisterEndDate = reviewRegisterEndDate
+        this.blogReviewDates = blogReviewDates
         this.currentApplicants = currentApplicants
         this.totalApplicants = totalApplicants
     }
