@@ -23,7 +23,10 @@ class BlogReviewEntityTest : BehaviorSpec() {
                 blogReviewEntity.done(expected, "", "", "", "", "", "", 0, 0)
 
                 then("내부 데이터를 파라미터 값으로 설정한다.") {
-                    blogReviewEntity.title shouldBe expected
+                    assertSoftly(blogReviewEntity) {
+                        done shouldBe true
+                        title shouldBe expected
+                    }
                 }
             }
         }
