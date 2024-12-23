@@ -98,13 +98,14 @@ class BlogReviewEntity(
         )
     }
 
-    fun done(
+    private fun done(
         title: String,
         content: String,
         blogReviewDates: BlogReviewDates,
         currentApplicants: Int,
         totalApplicants: Int,
     ) {
+        this.done = true
         this.title = title
         this.content = content
         this.blogReviewDates = blogReviewDates
