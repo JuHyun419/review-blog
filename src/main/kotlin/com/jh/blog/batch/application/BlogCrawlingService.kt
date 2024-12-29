@@ -29,7 +29,7 @@ class BlogCrawlingService(
             comeToPlay.crawling(
                 driver = driver,
                 url = GS_URL,
-                excludeKeywords = GS_EXCLUDE_KEYWORDS
+                excludeKeywords = GS_EXCLUDE_KEYWORDS,
             )
         }.onFailure { e ->
             logger.error { "failed crawling -> ${e.message}" }
