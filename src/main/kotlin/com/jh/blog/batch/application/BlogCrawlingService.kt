@@ -1,5 +1,7 @@
 package com.jh.blog.batch.application
 
+import com.jh.blog.batch.common.Const.GGG_EXCLUDE_KEYWORD
+import com.jh.blog.batch.common.Const.GGG_URL
 import com.jh.blog.batch.common.Const.GS_EXCLUDE_KEYWORDS
 import com.jh.blog.batch.common.Const.GS_URL
 import io.github.bonigarcia.wdm.WebDriverManager
@@ -25,7 +27,12 @@ class BlogCrawlingService(
         val driver: WebDriver = ChromeDriver(ChromeOptions())
 
         runCatching {
-            // TODO: 구로/관악/금천, 영등포/동작 크롤링 로직 추가
+            comeToPlay.crawling(
+                driver = driver,
+                url = GGG_URL,
+                excludeKeywords = GGG_EXCLUDE_KEYWORD,
+            )
+
             comeToPlay.crawling(
                 driver = driver,
                 url = GS_URL,

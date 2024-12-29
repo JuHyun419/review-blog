@@ -11,7 +11,7 @@ object Const {
     /* 구로 관악 금천 */
     const val GGG_URL =
         "https://www.cometoplay.kr/item_list.php?category_id=001012024055&sst=it_datetime&sod=desc"
-    val GGG_EXCLUDE_KEYWORD = listOf("TODO")
+    val GGG_EXCLUDE_KEYWORD = listOf("금천", "독산", "신대방", "신도림")
 
     val OVER_70000_WON = listOf(
         "70,000", "71,000", "72,000", "73,000", "74,000", "75,000", "76,000", "77,000", "78,000", "79,000",
