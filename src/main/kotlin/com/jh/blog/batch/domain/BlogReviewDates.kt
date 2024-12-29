@@ -18,5 +18,5 @@ class BlogReviewDates(
     var reviewRegisterStartDate: String? = null,
 
     @Column(name = "review_register_end_date")
-    var reviewRegisterEndDate: String? = null
+    var reviewRegisterEndDate: String? = null,
 )

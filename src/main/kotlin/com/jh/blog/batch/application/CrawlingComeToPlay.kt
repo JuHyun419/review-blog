@@ -53,7 +53,7 @@ class CrawlingComeToPlay(
         maxAttempts = 3,
         backoff = Backoff(delay = 3000L),
         retryFor = [RuntimeException::class],
-        recover = "recover"
+        recover = "recover",
     )
     fun crawling(driver: WebDriver, url: String, excludeKeywords: List<String>) {
         webLogin(driver)
@@ -137,7 +137,7 @@ class CrawlingComeToPlay(
                     reviewRegisterStartDate = reviewRegisterStartDate,
                     reviewRegisterEndDate = reviewRegisterEndDate,
                     currentApplicants = 0, // TODO
-                    totalApplicants = 0 // TODO
+                    totalApplicants = 0, // TODO
                 )
 
                 if (excludesKeyword && !isOver70000WonPrice(provided)) {

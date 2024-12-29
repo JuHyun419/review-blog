@@ -21,8 +21,8 @@ import java.time.LocalDateTime
     indexes = [
         Index(name = "idx_blog_review_link", columnList = "link"),
         Index(name = "idx_blog_review_title", columnList = "title"),
-        Index(name = "idx_blog_review_created_at", columnList = "created_at")
-    ]
+        Index(name = "idx_blog_review_created_at", columnList = "created_at"),
+    ],
 )
 class BlogReviewEntity(
 
@@ -66,7 +66,7 @@ class BlogReviewEntity(
 
     @LastModifiedDate
     var updatedAt: LocalDateTime = createdAt,
-    ) {
+) {
 
     fun done() {
         this.done = true
@@ -91,7 +91,7 @@ class BlogReviewEntity(
                 reviewerEndDate,
                 reviewerSelectDate,
                 reviewRegisterStartDate,
-                reviewRegisterEndDate
+                reviewRegisterEndDate,
             ),
             currentApplicants = currentApplicants,
             totalApplicants = totalApplicants,
