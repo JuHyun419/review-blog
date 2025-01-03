@@ -6,12 +6,12 @@ object Const {
     const val GS_URL =
         "https://www.cometoplay.kr/item_list.php?category_id=001012024053&sst=it_datetime&sod=desc&page="
     val GS_EXCLUDE_KEYWORDS =
-        listOf("신사", "신논현", "압구정", "신사역", "양재", "양재역", "강남구청", "강남구청역", "수서", "가로수길", "논현역", "학동역")
+        listOf("신사", "신논현", "압구정", "신사역", "양재", "양재역", "강남구청", "강남구청역", "수서", "가로수길", "논현역", "학동역", "청계산", "청계숲")
 
     /* 구로 관악 금천 */
     const val GGG_URL =
         "https://www.cometoplay.kr/item_list.php?category_id=001012024055&sst=it_datetime&sod=desc"
-    val GGG_EXCLUDE_KEYWORD = listOf("TODO")
+    val GGG_EXCLUDE_KEYWORD = listOf("금천", "독산", "신대방", "신도림")
 
     val OVER_70000_WON = listOf(
         "70,000", "71,000", "72,000", "73,000", "74,000", "75,000", "76,000", "77,000", "78,000", "79,000",
