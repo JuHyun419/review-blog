@@ -6,6 +6,8 @@ plugins {
     id("org.springframework.boot") version "3.3.4"
     id("io.spring.dependency-management") version "1.1.6"
     id("org.jlleitschuh.gradle.ktlint") version "11.4.0"
+
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.jh"
@@ -38,6 +40,14 @@ dependencies {
     implementation("org.springframework.retry:spring-retry")
     implementation("org.springframework:spring-aspects")
 
+    // AWS Lambda
+    implementation("org.springframework.cloud:spring-cloud-starter-function-web:4.1.3")
+    implementation("org.springframework.cloud:spring-cloud-function-kotlin:4.1.3")
+    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.1.3")
+    implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
+    implementation("com.amazonaws:aws-lambda-java-core:1.2.1")
+    runtimeOnly("com.amazonaws:aws-lambda-java-log4j2:1.5.1")
+
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -56,4 +66,32 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Start-Class"] = "com.jh.blog.ReviewBlogApplicationKt"
+    }
+}
+
+tasks.assemble {
+    dependsOn("shadowJar")
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    archiveClassifier.set("aws")
+    archiveFileName.set("batch.jar")
+    dependencies {
+        exclude("org.springframework.cloud:spring-cloud-function-web")
+    }
+    mergeServiceFiles()
+    append("META-INF/spring.handlers")
+    append("META-INF/spring.schemas")
+    append("META-INF/spring.tooling")
+    append("META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports")
+    append("META-INF/spring/org.springframework.boot.actuate.autoconfigure.web.ManagementContextConfiguration.imports")
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformer::class.java) {
+        paths.add("META-INF/spring.factories")
+        mergeStrategy = "append"
+    }
 }

@@ -13,6 +13,9 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    function:
+      definition: TODO
 
 blog:
   my: ENC(gUGwPmYy3B0t7SfxnXGSqixFWZ1WNTrEqQ91QT1PRJ14ZaJoXFX3zzuCZPiZ3o87bR8aELAGOXZRaVqu4JMtBw==)
