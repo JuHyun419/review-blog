@@ -55,7 +55,7 @@ class CrawlingComeToPlay(
         retryFor = [RuntimeException::class],
         recover = "recover",
     )
-    fun crawling(driver: WebDriver, url: String, excludeKeywords: List<String>) {
+    fun crawling(driver: WebDriver, url: String, excludeKeywords: List<String>, taskName: String) {
         webLogin(driver)
 
         var currentPage = 1
@@ -88,7 +88,13 @@ class CrawlingComeToPlay(
 
                 Thread.sleep(200L)
 
-                val blogReviewEntity = BlogReviewEntity(blogType = BlogType.COME_VISIT, link = href)
+                val subRegion = if (taskName == "GGG") {
+                    "구로/관악/금천"
+                } else {
+                    "강남/서초"
+                }
+
+                val blogReviewEntity = BlogReviewEntity(blogType = BlogType.COME_VISIT, link = href, subRegion = subRegion)
 
                 repository.save(blogReviewEntity)
 

@@ -43,6 +43,9 @@ class BlogReviewEntity(
     @Column(name = "content")
     var content: String? = null,
 
+    @Column(name = "sub_region")
+    val subRegion: String,
+
     @Embedded
     var blogReviewDates: BlogReviewDates = BlogReviewDates(),
 
